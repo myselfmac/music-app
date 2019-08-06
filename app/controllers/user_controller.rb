@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
+# this controller contain methods which is user action
 class UserController < ApplicationController
-
-  def Search
-  	@artist => params[:artist]
+  def search
+    @artist = params[:artist]
   end
 
-  def History
-  	@history = History.find(params[:id])
+  def history
+    @history = History.find(params[:id])
   end
 
-  def Delete_History
+  def delete_history
     History.find(params[:id]).destroy
   end
 
   def logout
-    redirect_to :controller => "pages", :action => "index"
+    redirect_to controller: "pages", action: "index"
   end
 end
